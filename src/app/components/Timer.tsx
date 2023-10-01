@@ -56,19 +56,34 @@ const Timer = () => {
     return (
 
         <div>
-            <div>
-                Phase: {
-                currentPhase.charAt(0).toUpperCase() + currentPhase.slice(1)
-            } </div>
-            <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
-                <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                    <div className="countdown font-mono text-6xl">
-                        {
-                        Math.floor(timeLeft / 60).toString().padStart(2, '0')
-                    }
-                        : {
-                        (timeLeft % 60).toString().padStart(2, '0')
+
+            <div className="flex min-h-1/2 h-max-1/2 md:h-1/2 flex-col md:flex-row justify-center items-center bg-gradient-to-l sm:bg-gradient-to-t from-[#88adf1] to-[#374b9c]">
+
+                <div className="relative">
+                    <div className='relative text-white left-11 text-2xl font-semibold flex flex-col w-24 h-20"'>
+                        Phase: {
+                        currentPhase.charAt(0).toUpperCase() + currentPhase.slice(1)
                     } </div>
+                    <svg className="-rotate-90 h-48 w-48">
+                        <circle r="70" cx="90" cy="90" className="fill-transparent stroke-[#88adf1] stroke-[8px]"/>
+                        <circle r="70" cx="90" cy="90"
+                            style={
+                                {
+                                    strokeDasharray: "440px"
+                                }
+                            }
+                            className="fill-transparent stroke-white  stroke-[8px]"/>
+                    </svg>
+                    <div className="text-white relative  left-11 text-2xl font-semibold flex flex-col items-center w-24 h-20">
+                        <span className="text-center">
+                            {
+                            Math.floor(timeLeft / 60).toString().padStart(2, '0')
+                        }
+                            : {
+                            (timeLeft % 60).toString().padStart(2, '0')
+                        } </span>
+
+                    </div>
                 </div>
             </div>
             <div>
